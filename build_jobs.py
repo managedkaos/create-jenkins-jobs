@@ -8,7 +8,6 @@ j = Jenkins(os.environ['ENDPOINT'], os.environ['USERNAME'], os.environ['PASSWORD
 with open("./teams.txt") as teams_file:
     for team in teams_file:
         team = team.strip()
-        print(team)
 
         for job in ['BUILD', 'TEST', 'DEPLOY']:
             j.job_build(team + "-" + job)

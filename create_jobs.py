@@ -11,7 +11,6 @@ with open("./config.xml") as config_file:
     with open("./teams.txt") as teams_file:
         for team in teams_file:
             team = team.strip()
-            print(team)
 
             for job in ['BUILD', 'TEST', 'DEPLOY']:
                 j.job_create(team + "-" + job, config)
