@@ -1,8 +1,4 @@
-create:
-	python ./create_jobs.py
+create delete build:
+	python ./${@}_jobs.py
 
-clean delete:
-	python ./delete_jobs.py
-
-build:
-	python ./build_jobs.py
+clean: delete
