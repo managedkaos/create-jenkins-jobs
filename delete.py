@@ -4,12 +4,11 @@ from jenkins import Jenkins, JenkinsError
 # get a handle for the jenkins server
 j = Jenkins(os.environ['ENDPOINT'], os.environ['USERNAME'], os.environ['PASSWORD'])
 
-with open("./teams.txt") as teams_file:
-    for team in teams_file:
-        team = team.strip()
+for job in j.jobs: 
+    job.delete() 
 
-        for job in ['BUILD', 'TEST', 'DEPLOY']:
-            j.job_delete(team + "-" + job)
+for view in j.views:
+    if view.name == 'all': 
+        continue
+    view.delete()
 
-for view in ['BUILD', 'TEST', 'DEPLOY']:
-    j.view_delete(view+"-jobs")
