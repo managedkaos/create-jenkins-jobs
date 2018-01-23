@@ -10,3 +10,6 @@ with open("./teams.txt") as teams_file:
 
         for job in ['BUILD', 'TEST', 'DEPLOY']:
             j.job_delete(team + "-" + job)
+
+for view in ['BUILD', 'TEST', 'DEPLOY']:
+    j.view_delete(view+"-jobs")

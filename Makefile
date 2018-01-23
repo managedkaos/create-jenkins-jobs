@@ -1,7 +1,6 @@
-create delete build:
-	python ./${@}_jobs.py
+all: jobs views build
+
+jobs views build delete:
+	python ./${@}.py
 
 clean: delete
-
-views:
-	python ./create_views.py
