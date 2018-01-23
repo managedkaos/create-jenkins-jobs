@@ -5,7 +5,7 @@ from jenkins import Jenkins, JenkinsError
 j = Jenkins(os.environ['ENDPOINT'], os.environ['USERNAME'], os.environ['PASSWORD'])
 
 # open the config.xml
-with open("./config.xml") as config_file:
+with open("./xml/job.xml") as config_file:
     config = config_file.read()
 
     with open("./teams.txt") as teams_file:
