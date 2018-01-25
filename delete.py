@@ -6,6 +6,8 @@ from jenkins import Jenkins, JenkinsError
 j = Jenkins(os.environ['ENDPOINT'], os.environ['USERNAME'], os.environ['PASSWORD'])
 
 for team in settings.teams:
+    j.job_delete(team)
+
     for job in settings.jobs:
         try:
             j.job_delete(team + "-" + job)
@@ -17,4 +19,5 @@ for job in settings.jobs:
         j.view_delete(job)
     except JenkinsError:
         print("Oops :D")
+
 

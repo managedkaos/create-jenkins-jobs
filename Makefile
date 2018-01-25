@@ -1,6 +1,6 @@
 all: jobs views build
 
-jobs views build delete:
+jobs views folders build delete:
 	honcho run python ./${@}.py
 
 clean: delete
