@@ -6,11 +6,7 @@ from jenkins import Jenkins, JenkinsError
 j = Jenkins(os.environ['ENDPOINT'], os.environ['USERNAME'], os.environ['PASSWORD'])
 
 # open the config.xml
-with open("./xml/folder.xml") as config_file:
+with open("./xml/apache-ivy-base-job.xml") as config_file:
     config = config_file.read()
 
-for team in settings.teams:
-    try:
-        j.job_create(team, config)
-    except:
-        print("Bummer! :/ :D")
+j.job_create("apache-ivy", config)
