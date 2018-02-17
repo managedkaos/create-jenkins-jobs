@@ -1,0 +1,11 @@
+- hosts: 127.0.0.1
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: List Plugins
+      jenkins_script:
+        url: http://localhost:49000
+        script: 'println(Jenkins.instance.pluginManager.plugins)'
+        user: demo
+        password: demo

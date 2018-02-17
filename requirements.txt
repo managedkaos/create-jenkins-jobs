@@ -1,2 +1,3 @@
 honcho
+ansible
 jenkins-webapi
