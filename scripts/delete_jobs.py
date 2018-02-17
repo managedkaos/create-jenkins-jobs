@@ -26,14 +26,3 @@ for team in settings.teams:
                 print("\tCouldn't delete job: %s" % target)
         else:
             print("\tJob doesn't exist; skipping: %s" % target)
-
-for job in settings.jobs:
-    if j.view_exists(job):
-        try:    
-            print("\tDeleting view: %s" % job)
-            j.view_delete(job)
-        except JenkinsError:
-            print("\tCouldn't delete view: %s" % job)
-    else:
-        print("\tView doesn't exist; skipping: %s" % job)
-
