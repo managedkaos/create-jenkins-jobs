@@ -6,18 +6,34 @@ from jenkins import Jenkins, JenkinsError
 j = Jenkins(os.environ['ENDPOINT'], os.environ['USERNAME'], os.environ['PASSWORD'])
 
 for team in settings.teams:
-    j.job_delete(team)
+    if j.job_exists(team):
+        try:
+            print("\tDeleting job: %s" % team)
+            j.job_delete(team)
+        except JenkinsError:
+            print("\tCouldn't delete job: %s" % team)
+    else:
+        print("\tJob doesn't exist; skipping: %s" % team)
 
     for job in settings.jobs:
-        try:
-            j.job_delete(team + "-" + job)
-        except JenkinsError:
-            print("Error :P")
+        target = team+"-"+job
+
+        if j.job_exists(target):
+            try:
+                print("\tDeleting job: %s" % target)
+                j.job_delete(target)
+            except JenkinsError:
+                print("\tCouldn't delete job: %s" % target)
+        else:
+            print("\tJob doesn't exist; skipping: %s" % target)
 
 for job in settings.jobs:
-    try:    
-        j.view_delete(job)
-    except JenkinsError:
-        print("Oops :D")
-
+    if j.view_exists(job):
+        try:    
+            print("\tDeleting view: %s" % job)
+            j.view_delete(job)
+        except JenkinsError:
+            print("\tCouldn't delete view: %s" % job)
+    else:
+        print("\tView doesn't exist; skipping: %s" % job)
 
