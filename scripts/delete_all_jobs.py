@@ -5,10 +5,18 @@ from jenkins import Jenkins, JenkinsError
 j = Jenkins(os.environ['ENDPOINT'], os.environ['USERNAME'], os.environ['PASSWORD'])
 
 for job in j.jobs: 
-    job.delete() 
+    try:
+        print("\tDeleting job: %s" % team)
+        j.job_delete(team)
+    except JenkinsError:
+        print("\tCouldn't delete job: %s" % team)
 
 for view in j.views:
     if view.name == 'all': 
         continue
-    view.delete()
 
+    try:
+        print("\tDeleting view: %s" % job)
+        j.view_delete(job)
+    except JenkinsError:
+        print("\tCouldn't delete view: %s" % job)
