@@ -1,0 +1,42 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: "no"
+  vars:
+    jenkins_endpoint:  "{{ lookup('env','ENDPOINT') }}"
+    jenkins_username:  "{{ lookup('env','USERNAME') }}"
+    jenkins_password:  "{{ lookup('env','PASSWORD') }}"
+    move_job: |
+        def JOB_REGEX = "{{ job_regex }}"
+        def FOLDER_NAME = "{{ folder_name }}"
+
+        import jenkins.*
+        import jenkins.model.*
+        import hudson.*
+        import hudson.model.*
+
+        jenkins = Jenkins.instance
+
+        def folder = jenkins.getItemByFullName(FOLDER_NAME)
+        if (folder == null) {
+          println "ERROR: Folder '$FOLDER_NAME' not found"
+          return
+        }
+
+        // Find jobs in main folder
+        def found = jenkins.items.grep { it.name =~ "${JOB_REGEX}" }
+        println "Searching main folder : $found"
+
+        // Move them
+        found.each { job ->
+          println "Moving '$job.name' to '$folder.name'"
+          Items.move(job, folder)
+        }
+
+  tasks:
+    - name: Move all jobs that match regex into corresponding folder
+      jenkins_script:
+        url: "{{ jenkins_endpoint }}"
+        user: "{{ jenkins_username }}"
+        password: "{{ jenkins_password }}"
+        script: "{{ move_job }}"
