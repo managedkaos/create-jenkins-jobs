@@ -10,3 +10,6 @@ clean-folders: delete_folders
 clean-views: delete_views
 
 clean-all: delete_all
+
+lint:
+	pylint ./scripts/*.py

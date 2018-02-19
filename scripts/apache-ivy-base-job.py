@@ -1,5 +1,4 @@
 import os
-import settings
 from jenkins import Jenkins, JenkinsError
 
 # get a handle for the jenkins server
@@ -17,4 +16,3 @@ else:
         j.job_create("apache-ivy", config)
     except JenkinsError:
         print("\tCouldn't create the job")
-        

@@ -1,3 +1,4 @@
-honcho
 ansible
+honcho
 jenkins-webapi
+pylint
