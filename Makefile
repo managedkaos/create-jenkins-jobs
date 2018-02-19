@@ -1,6 +1,6 @@
 all: jobs views folders build
 
-jobs views folders build delete_jobs delete_folders delete_views delete_all apache-ivy-base-job move_jobs:
+jobs views folders build delete_jobs delete_folders delete_views delete_all apache_ivy_base_job move_jobs:
 	honcho run python ./scripts/${@}.py
 
 clean: delete_jobs
