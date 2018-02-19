@@ -3,9 +3,9 @@
   connection: local
   gather_facts: "no"
   vars:
-    jenkins_endpoint:  "{{ lookup('env','ENDPOINT') }}"
-    jenkins_username:  "{{ lookup('env','USERNAME') }}"
-    jenkins_password:  "{{ lookup('env','PASSWORD') }}"
+    jenkins_endpoint: "{{ lookup('env','ENDPOINT') }}"
+    jenkins_username: "{{ lookup('env','USERNAME') }}"
+    jenkins_password: "{{ lookup('env','PASSWORD') }}"
     move_job: |
         def JOB_REGEX = "{{ job_regex }}"
         def FOLDER_NAME = "{{ folder_name }}"
