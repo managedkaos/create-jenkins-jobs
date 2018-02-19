@@ -11,5 +11,13 @@ clean-views: delete_views
 
 clean-all: delete_all
 
-lint:
+pylint:
 	pylint ./scripts/*.py
+
+yamllint:
+	yamllint ./ansible/*.yml
+
+lint: pylint yamllint
+
+jenkins: 
+	./scripts/jenkins_on_docker.sh
