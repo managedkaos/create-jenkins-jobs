@@ -16,5 +16,5 @@ for team in settings.teams:
         try:
             print("\tCreating folder: %s" % team)
             j.job_create(team, config)
-        except:
-            print("\tCouldn't create folder: %s" % team)
+        except JenkinsError as e:
+            print("\tERROR: %s" % e)

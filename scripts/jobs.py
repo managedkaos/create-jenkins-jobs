@@ -17,4 +17,7 @@ for team in settings.teams:
             print("\tJob exists; skipping: %s" % target)
         else:
             print("\tCreating job: %s" % target)
-            j.job_create(team + "-" + job, config)
+            try:
+                j.job_create(team + "-" + job, config)
+            except JenkinsError as e:
+                print("\tERROR: %s", e)
