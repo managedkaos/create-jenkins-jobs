@@ -34,6 +34,9 @@ up detach:
 open:
 	open http://localhost:$(PORT)
 
+password:
+	docker exec jenkins-compose cat /var/jenkins_home/secrets/initialAdminPassword
+
 health:
 	docker inspect --format='{{json .State.Health}}' $(BUILD_NAME)
 
