@@ -8,5 +8,5 @@
       jenkins_script:
         url: http://localhost:49000
         script: 'println(Jenkins.instance.pluginManager.plugins)'
-        user: demo
-        password: demo
+        user: admin
+        password: REPLACE_THIS_WITH_A_PASSWORD_OR_API_KEY
