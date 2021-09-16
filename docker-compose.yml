@@ -3,7 +3,7 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
     ports:
-      - 49000:8080
+      - 8080:8080
     container_name: jenkins-compose
     volumes:
       - jenkins:/var/jenkins_home
