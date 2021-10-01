@@ -43,3 +43,6 @@ health:
 exec:
 	docker exec -it $(BUILD_NAME) bash
 
+nuke:
+	docker-compose down --volumes --rmi local
+
