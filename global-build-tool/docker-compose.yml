@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - 8080:8080
+    container_name: global-build-tool
+    volumes:
+      - global-build-tool:/var/jenkins_home
+volumes:
+   global-build-tool:
+     name: global-build-tool
+networks:
+  default:
+     name: global-build-tool
+
