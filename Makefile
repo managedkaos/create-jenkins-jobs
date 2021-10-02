@@ -1,4 +1,4 @@
-PORT       = 49000
+PORT       = 8080
 BUILD_NAME = jenkins
 
 all: jobs views folders build
