@@ -42,6 +42,7 @@
 0:01:45 3003221-04-04-delete-folders-views.mov
 0:01:40 3003221-05-01-pipelines-pu1.mov
 0:01:40 3003221-05-01-pipelines.mov
+0:01:02 3003221-05-02-next-steps.mov
 0:00:52 soundcheck-2021-10-02-0943.mov
 22.47 s soundcheck-2021-10-02-1202.mov
 0:00:56 soundcheck-2021-10-05-2101.mov
