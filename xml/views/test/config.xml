@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <hudson.model.ListView>
   <name>TEST-Jobs</name>
+  <description>These are the &quot;TEST&quot; jobs.</description>
   <filterExecutors>false</filterExecutors>
   <filterQueue>false</filterQueue>
   <properties class="hudson.model.View$PropertyList"/>
@@ -17,6 +18,6 @@
     <hudson.views.LastDurationColumn/>
     <hudson.views.BuildButtonColumn/>
   </columns>
-  <includeRegex>.*-TEST</includeRegex>
+  <includeRegex>.*TEST.*</includeRegex>
   <recurse>false</recurse>
 </hudson.model.ListView>

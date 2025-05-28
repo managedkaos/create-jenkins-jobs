@@ -5,6 +5,9 @@ jobs views folders build delete_jobs delete_folders delete_views delete_all apac
 
 move_jobs : folders
 
+list_plugins:
+	honcho run python ./scripts/list_plugins.py
+
 clean: delete_jobs
 
 clean-folders: delete_folders
@@ -21,5 +24,5 @@ yamllint:
 
 lint: pylint yamllint
 
-jenkins: 
+jenkins:
 	./scripts/jenkins_on_docker.sh

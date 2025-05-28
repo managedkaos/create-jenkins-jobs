@@ -2,11 +2,15 @@
 - hosts: 127.0.0.1
   connection: local
   gather_facts: "no"
+  vars:
+    jenkins_endpoint: "{{ lookup('env','ENDPOINT') }}"
+    jenkins_username: "{{ lookup('env','USERNAME') }}"
+    jenkins_password: "{{ lookup('env','PASSWORD') }}"
 
   tasks:
     - name: List Plugins
       jenkins_script:
-        url: http://localhost:49000
+        url: "{{ jenkins_endpoint }}"
         script: 'println(Jenkins.instance.pluginManager.plugins)'
-        user: demo
-        password: demo
+        user: "{{ jenkins_username }}"
+        password: "{{ jenkins_password }}"
