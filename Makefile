@@ -1,6 +1,6 @@
 all: jobs views folders build
 
-jobs views folders build delete_jobs delete_folders delete_views delete_all apache_ivy_base_job move_jobs:
+jobs views folders build delete_jobs delete_folders delete_views delete_all apache_ivy_base_job move_jobs challenge_jobs challenge_folders challenge_views challenge_move_jobs:
 	honcho run python ./scripts/${@}.py
 
 move_jobs : folders
@@ -10,11 +10,11 @@ list_plugins:
 
 clean: delete_jobs
 
-clean-folders: delete_folders
+clean_folders: delete_folders
 
-clean-views: delete_views
+clean_views: delete_views
 
-clean-all: delete_all
+clean_all: delete_all
 
 pylint:
 	pylint ./scripts/*.py
