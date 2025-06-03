@@ -1,0 +1,59 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>This is a parameterized job.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>STRING_PARAMETER</name>
+          <description>This is a string parameter.  The default value is &quot;APA1906&quot;.</description>
+          <defaultValue>APA1906</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>CHOICE_PARAMETER</name>
+          <description>This is a choice parameter with three choices. The default value is &quot;ALPHA&quot; because it is the first of all.</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>ALPHA</string>
+              <string>BETA</string>
+              <string>GAMMA</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>BOOLEAN_PARAMETER</name>
+          <description>This is a boolean parameter.  Because the default value is checked, the default value will be &quot;TRUE&quot;.</description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>@echo off&#xd;
+@echo STRING_PARAMETER = %STRING_PARAMETER%&#xd;
+@echo CHOICE_PARAMETER = %CHOICE_PARAMETER%&#xd;
+@echo CHOICE_PARAMETER = %CHOICE_PARAMETER%</command>
+      <configuredLocalRules/>
+    </hudson.tasks.BatchFile>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+echo &quot;STRING_PARAMETER = $STRING_PARAMETER&quot;
+echo &quot;CHOICE_PARAMETER = $CHOICE_PARAMETER&quot;
+echo &quot;CHOICE_PARAMETER = $CHOICE_PARAMETER&quot;</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

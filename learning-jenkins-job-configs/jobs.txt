@@ -1,0 +1,10 @@
+Hello-Jenkins
+Hello-Maven
+boolean-parameter-example
+choice-parameter-example
+java-calculator
+long-running-job
+parameterized-job-example
+scheduled-job-example
+string-parameter-example
+system-report
